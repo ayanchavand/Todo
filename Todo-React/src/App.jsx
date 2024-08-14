@@ -5,14 +5,14 @@ import TodoList from './TodoList';
 
 
 export default function App() {
-  const [Todo, setTodo] = useState("")
+  const [todos, setTodos] = useState([])
 
-  const addTodo = (todo) => {
-    setTodo(todo)
+  const addTodo = (newTodo) => {
+    setTodos((prevTodos) => [...prevTodos, newTodo])
   }
   return (
     <>
-      <TodoList todoTask ={Todo} />
+      <TodoList todoTask ={todos} />
       <TodoForm addTodo={addTodo}/>
     </>
   ) 

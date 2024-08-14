@@ -1,11 +1,15 @@
 import React from "react";
 
- export default function TodoList({todoTask}){
+export default function TodoList({todoTask}){
     return (
       <>
       <ul>
-        <li>{todoTask}</li>
+        {todoTask.map((todo, index) => (<TodoItem key={index} todoValue={todo}/>))}
       </ul>
       </>
     )
+}
+
+function TodoItem({todoValue}){
+    return <li>{todoValue}</li>
 }
