@@ -1,10 +1,10 @@
 import React from "react";
 
- export default function TodoList(){
+ export default function TodoList({todoTask}){
     return (
       <>
       <ul>
-        <li>hii</li>
+        <li>{todoTask}</li>
       </ul>
       </>
     )
