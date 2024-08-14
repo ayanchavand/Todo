@@ -11,12 +11,15 @@ export default function TodoForm({addTodo}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(input)
-        addTodo(input)
-        setInput('')
+        if(input !== ''){
+            console.log(input)
+            addTodo(input)
+            setInput('')
+        }
+        
     }
     return (
-      <Box component = "form" 
+      <Box component="form"
         sx={{
           width: 500,
           maxWidth: '100%',

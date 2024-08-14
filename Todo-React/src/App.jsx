@@ -12,7 +12,7 @@ export default function App() {
   }
   return (
     <>
-      <TodoList todoTask ={todos} />
+      <TodoList todos ={todos} />
       <TodoForm addTodo={addTodo}/>
     </>
   ) 

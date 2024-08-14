@@ -1,15 +1,25 @@
 import React from "react";
+import { List, ListItem, ListItemText, Checkbox, Box } from '@mui/material';
 
-export default function TodoList({todoTask}){
+export default function TodoList({todos}){
     return (
-      <>
-      <ul>
-        {todoTask.map((todo, index) => (<TodoItem key={index} todoValue={todo}/>))}
-      </ul>
-      </>
-    )
+        <List>            
+          {todos.map((todo, index) => (
+            <TodoItem index={index} todo={todo} />
+          ))}
+        </List>
+      );
 }
 
-function TodoItem({todoValue}){
-    return <li>{todoValue}</li>
+const TodoItem = ({index, todo}) => {
+    return(
+        <>  
+            <Box sx={{border: '2px solid grey'}}>
+                <ListItem key={index}>
+                    <Checkbox />
+                    <ListItemText primary={todo} />      
+                </ListItem>
+            </Box>
+        </>
+    )
 }
