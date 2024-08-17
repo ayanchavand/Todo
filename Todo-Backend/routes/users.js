@@ -23,10 +23,28 @@ router.get('/api/common', async (req, res) => {
                 todoList:[]
             })
             await user.save()
-        } else res.json(user)
+        } 
+        res.json(user)
 
     } catch (error) {
         res.status(500).send('server error')
+    }
+})
+
+router.put('/api/common', async (req, res) => {
+    try {
+        const todoList = req.body
+        console.log(todoList)
+         // Find the user
+        let user = await User.findOne({ user: 'common' });
+
+        // Update the todoList
+        user.todoList = todoList;
+
+        // Save the updated user document
+        await user.save();
+    } catch(error){
+        res.status(500) 
     }
 })
 
