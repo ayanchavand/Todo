@@ -10,7 +10,11 @@ router.get('/users', (req, res) =>{
 })
 
 router.get('/users/common', async (req, res) => {
+    
+    res.sendFile(path.join(buildPath))
+})
 
+router.get('/api/common', async (req, res) => {
     try{
         let user = await User.findOne({user: 'common'})
         if(!user){
@@ -19,12 +23,11 @@ router.get('/users/common', async (req, res) => {
                 todoList:[]
             })
             await user.save()
-        }
+        } else res.json(user)
 
     } catch (error) {
         res.status(500).send('server error')
     }
-    res.sendFile(path.join(buildPath))
 })
 
 module.exports = router
