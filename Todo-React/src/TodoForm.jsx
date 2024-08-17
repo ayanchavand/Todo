@@ -16,8 +16,8 @@ export default function TodoForm({addTodo}) {
             addTodo(input)
             setInput('')
         }
-        
     }
+    
     return (
       <Box component="form"
         sx={{
